@@ -1,6 +1,7 @@
-linguagens = ["python", "js", "c", "java", "csharp"]
-
-print(linguagens.pop())  # csharp
-print(linguagens.pop())  # java
-print(linguagens.pop())  # c
-print(linguagens.pop(0))  # python
+[n**2 
+ 
+ if n > 6 
+ 
+ else n for n in range(10)
+ 
+ if n % 2 == 0] 

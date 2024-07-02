@@ -1,18 +1,18 @@
-import textwrap
-
+#editado por salinasjmilesbr
 
 def menu():
     menu = """\n
-    ================ MENU ================
-    [d]\tDepositar
-    [s]\tSacar
-    [e]\tExtrato
-    [nc]\tNova conta
-    [lc]\tListar contas
-    [nu]\tNovo usuário
-    [q]\tSair
+    ================ MENU ================\n
+    Por favor, escolha a opção desejada:\n
+    [d]Depositar
+    [s]Sacar
+    [e]Extrato
+    [nc]Nova conta
+    [lc]Listar contas
+    [nu]Novo usuário
+    [q]Sair
     => """
-    return input(textwrap.dedent(menu))
+    return input(menu)
 
 
 def depositar(saldo, valor, extrato, /):
@@ -32,13 +32,13 @@ def sacar(*, saldo, valor, extrato, limite, numero_saques, limite_saques):
     excedeu_saques = numero_saques >= limite_saques
 
     if excedeu_saldo:
-        print("\n@@@ Operação falhou! Você não tem saldo suficiente. @@@")
+        print("\n@@@ A operação falhou! Saldo suficiente. @@@")
 
     elif excedeu_limite:
-        print("\n@@@ Operação falhou! O valor do saque excede o limite. @@@")
+        print("\n@@@ A operação falhou! O valor do saque excede o limite de R$500,00. @@@")
 
     elif excedeu_saques:
-        print("\n@@@ Operação falhou! Número máximo de saques excedido. @@@")
+        print("\n@@@ A operação falhou! Número máximo de 3 saques excedido. @@@")
 
     elif valor > 0:
         saldo -= valor
@@ -47,7 +47,7 @@ def sacar(*, saldo, valor, extrato, limite, numero_saques, limite_saques):
         print("\n=== Saque realizado com sucesso! ===")
 
     else:
-        print("\n@@@ Operação falhou! O valor informado é inválido. @@@")
+        print("\n@@@ A operação falhou! O valor informado é inválido. @@@")
 
     return saldo, extrato
 
@@ -60,18 +60,18 @@ def exibir_extrato(saldo, /, *, extrato):
 
 
 def criar_usuario(usuarios):
-    cpf = input("Informe o CPF (somente número): ")
+    cpf = input("Informe o CPF (somente números): ")
     usuario = filtrar_usuario(cpf, usuarios)
 
     if usuario:
-        print("\n@@@ Já existe usuário com esse CPF! @@@")
+        print("\n@@@ CPF já existente, cadastre outro. @@@")
         return
 
     nome = input("Informe o nome completo: ")
     data_nascimento = input("Informe a data de nascimento (dd-mm-aaaa): ")
-    endereco = input("Informe o endereço (logradouro, nro - bairro - cidade/sigla estado): ")
+    endereco = input("Informe o endereço (logradouro, número - bairro - cidade/sigla estado): ")
 
-    usuarios.append({"nome": nome, "data_nascimento": data_nascimento, "cpf": cpf, "endereco": endereco})
+    usuarios.append({"nome": nome, "data_nascimento": data_nascimento, "cpf": cpf, "endereço": endereco})
 
     print("=== Usuário criado com sucesso! ===")
 
@@ -100,7 +100,7 @@ def listar_contas(contas):
             Titular:\t{conta['usuario']['nome']}
         """
         print("=" * 100)
-        print(textwrap.dedent(linha))
+        print(linha)
 
 
 def main():
