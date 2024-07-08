@@ -1,3 +1,5 @@
+# Editado por salinasjmilesbr
+
 from abc import ABC, abstractclassmethod, abstractproperty
 from datetime import datetime
 
